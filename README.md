@@ -1,5 +1,8 @@
 # Remora + Freqtrade Integration
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Backtests](https://img.shields.io/badge/Backtests-Available-blue)](https://github.com/DonaldSimpson/remora-backtests)
+
 **Add real-time market context to your existing Freqtrade strategy - avoid the worst trades in seconds.**
 
 Remora helps your strategies avoid high-risk market periods:
@@ -13,6 +16,15 @@ Remora helps your strategies avoid high-risk market periods:
 **Remora does NOT replace your strategy.**
 
 It simply acts as a "risk filter" that blocks the entries most likely to lose money.
+
+## Table of Contents
+
+- [Quickest Start (Beginner-Friendly)](#quickest-start-beginner-friendly)
+- [Optional: Example Strategies](#optional-example-strategies)
+- [Advanced Users (Free Tier)](#advanced-users-free-tier)
+- [Want Proof?](#want-proof)
+- [Who This Is For](#who-this-is-for)
+- [Contributing & Feedback](#contributing--feedback)
 
 ---
 
