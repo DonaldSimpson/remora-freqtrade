@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Backtests](https://img.shields.io/badge/Backtests-Available-blue)](https://github.com/DonaldSimpson/remora-backtests)
 
+[<img src="images/remora-social-card.jpg" alt="Remora Risk Engine - Stop Bad Trades Before They Happen" width="600">](https://remora-ai.com)
+
 **Add real-time market context to your existing Freqtrade strategy - avoid the worst trades in seconds.**
 
 Remora helps your strategies avoid high-risk market periods:
@@ -19,12 +21,17 @@ It simply acts as a "risk filter" that blocks the entries most likely to lose mo
 
 ## Table of Contents
 
-- [Quickest Start (Beginner-Friendly)](#quickest-start-beginner-friendly)
-- [Optional: Example Strategies](#optional-example-strategies)
-- [Advanced Users (Free Tier)](#advanced-users-free-tier)
-- [Want Proof?](#want-proof)
-- [Who This Is For](#who-this-is-for)
-- [Contributing & Feedback](#contributing--feedback)
+- [Remora + Freqtrade Integration](#remora--freqtrade-integration)
+  - [Table of Contents](#table-of-contents)
+  - [Quickest Start (Beginner-Friendly)](#quickest-start-beginner-friendly)
+    - [1. Set your API key](#1-set-your-api-key)
+    - [2. Add Remora to your strategy](#2-add-remora-to-your-strategy)
+    - [3. Verify it works](#3-verify-it-works)
+  - [Optional: Example Strategies](#optional-example-strategies)
+  - [Advanced Users (Free Tier)](#advanced-users-free-tier)
+  - [Want Proof?](#want-proof)
+  - [Who This Is For](#who-this-is-for)
+  - [Contributing \& Feedback](#contributing--feedback)
 
 ---
 
