@@ -1,0 +1,18 @@
+# Advanced Requirements (Optional)
+#
+# Only needed for advanced users using remora.client or running tests.
+# Beginners using the simple snippet integration don't need this file.
+#
+# Freqtrade already includes requests, so the simple integration works
+# without any additional dependencies.
+
+requests>=2.31.0
+
+# For running tests (optional):
+# pytest>=7.0.0
+
+# For running the Jupyter notebook (optional):
+# jupyter>=1.0.0
+# matplotlib>=3.5.0
+# pandas>=1.5.0
+# numpy>=1.23.0
