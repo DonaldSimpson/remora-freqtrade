@@ -62,7 +62,7 @@ Get your free API key at [remora-ai.com/signup.php](https://remora-ai.com/signup
 
 **Note:** You can use Remora without an API key (60 requests/minute), but registration gives you 300 requests/minute.
 
-### Add Remora to your strategy
+### Step 1: Add Remora to your strategy
 
 The code below shows what to add (marked with `# REMORA:` comments) vs your existing code:
 
