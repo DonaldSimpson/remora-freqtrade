@@ -11,9 +11,9 @@ class RemoraClient:
 
             raise ValueError("Remora API key missing. Set REMORA_API_KEY env var.")
 
-        self.url = "https://api.remora-ai.com/context"
+        self.url = "https://remora-ai.com/api/v1/risk"
 
-    def get_context(self, symbol: str):
+    def get_context(self, pair: str):
 
         """
 
@@ -27,7 +27,9 @@ class RemoraClient:
 
                 "risk_score": float,
 
-                "risk_class": str,
+                "regime": str,
+
+                "volatility": float,
 
                 "reasoning": [...],
 
@@ -41,7 +43,7 @@ class RemoraClient:
 
             self.url,
 
-            params={"symbol": symbol},
+            params={"pair": pair},
 
             headers={"Authorization": f"Bearer {self.api_key}"},
 
@@ -52,4 +54,7 @@ class RemoraClient:
         r.raise_for_status()
 
         return r.json()
+
+
+
 

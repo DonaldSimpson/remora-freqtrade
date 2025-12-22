@@ -17,7 +17,7 @@ class TestRemoraClient:
         """Test initialization with explicit API key"""
         client = RemoraClient(api_key="test-key-123")
         assert client.api_key == "test-key-123"
-        assert client.url == "https://api.remora-ai.com/context"
+        assert client.url == "https://remora-ai.com/api/v1/risk"
     
     def test_init_with_env_var(self):
         """Test initialization with environment variable"""
@@ -37,7 +37,7 @@ class TestRemoraClient:
         mock_response.json.return_value = {
             "safe_to_trade": True,
             "risk_score": 0.25,
-            "risk_class": "low",
+            "regime": "bull",
             "reasoning": ["Normal market conditions"]
         }
         mock_response.raise_for_status = Mock()
@@ -48,7 +48,7 @@ class TestRemoraClient:
             
             assert ctx["safe_to_trade"] is True
             assert ctx["risk_score"] == 0.25
-            assert ctx["risk_class"] == "low"
+            assert ctx["regime"] == "bull"
             assert len(ctx["reasoning"]) == 1
     
     def test_get_context_api_params(self):
@@ -65,7 +65,7 @@ class TestRemoraClient:
             mock_get.assert_called_once()
             call_args = mock_get.call_args
             
-            assert call_args[1]["params"]["symbol"] == "ETH/USDT"
+            assert call_args[1]["params"]["pair"] == "ETH/USDT"
             assert call_args[1]["headers"]["Authorization"] == "Bearer test-key"
             assert call_args[1]["timeout"] == 3
     
@@ -96,7 +96,7 @@ class TestRemoraClient:
         mock_response.json.return_value = {
             "safe_to_trade": False,
             "risk_score": 0.85,
-            "risk_class": "high",
+            "regime": "bear",
             "reasoning": ["Volatility spike detected", "Extreme fear conditions"]
         }
         mock_response.raise_for_status = Mock()
@@ -107,10 +107,13 @@ class TestRemoraClient:
             
             assert ctx["safe_to_trade"] is False
             assert ctx["risk_score"] == 0.85
-            assert ctx["risk_class"] == "high"
+            assert ctx["regime"] == "bear"
             assert len(ctx["reasoning"]) == 2
 
 
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])
+
+
+
 

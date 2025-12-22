@@ -39,8 +39,8 @@ class SimpleRiskFilterStrategy(IStrategy):
         
         try:
             response = requests.get(
-                "https://api.remora-ai.com/context",
-                params={"symbol": pair},  # API expects "symbol" parameter
+                "https://remora-ai.com/api/v1/risk",
+                params={"pair": pair},  # REMORA: API expects "pair" parameter
                 headers=headers,
                 timeout=2.0
             )
@@ -50,7 +50,8 @@ class SimpleRiskFilterStrategy(IStrategy):
             safe = data.get("safe_to_trade", True)
             
             if not safe:
-                self.log(f"Remora blocked entry for {pair}: {data.get('reasoning', 'High risk')}")
+                reasoning = data.get('reasoning', ['High risk'])
+                self.log(f"REMORA: Blocked entry for {pair}: {reasoning}")
             
             return safe
             
@@ -80,11 +81,9 @@ class SimpleRiskFilterStrategy(IStrategy):
         # Example: enter on any signal (you'd replace this with your actual logic)
         dataframe.loc[:, "enter_long"] = 1
         
-        # Apply Remora filter - block entries if Remora says it's unsafe
-        # This is called by Freqtrade automatically via confirm_trade_entry()
-        # But you can also check here if you prefer:
+        # REMORA: Apply risk filter - block entries if market conditions are unsafe
         if not self.confirm_trade_entry(pair):
-            dataframe.loc[:, "enter_long"] = 0
+            dataframe.loc[:, "enter_long"] = 0  # REMORA: Skip high-risk trades
         
         return dataframe
 
